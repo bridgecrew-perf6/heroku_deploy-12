@@ -26,7 +26,10 @@ const productionEnv = {
   cli: {    
     migrationsDir: "./build/migrations",
   },
+  extra: {
   ssl: { rejectUnauthorized: false },
+  }
 }
+
 
 module.exports = process.env.NODE_ENV === "production" ? productionEnv : developmentEnv;
