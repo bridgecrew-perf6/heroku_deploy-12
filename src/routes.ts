@@ -7,4 +7,4 @@ router.post('/', createUserController);
 
 router.get('/', getUsersController)
 
-export default router;
+export { router };

@@ -11,6 +11,9 @@
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
       "sourceMap": true,
-      "esModuleInterop": true
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "strict": false,
+      "skipLibCheck": true
    }
 }
