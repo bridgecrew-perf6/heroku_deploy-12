@@ -10,11 +10,11 @@ const developmentEnv = {
   synchronize: true,
   logging: false,
   ssl: false,
-  entities: [path.join(__dirname, "../entities/**/*.*")],
-  migrations: [path.join(__dirname, "../migrations/**/*.*")],
+  entities: ["./src/entities/*.ts"],
+  migrations: ["./src/migrations/*.ts"],
   cli: {
-    entitiesDir: path.join(__dirname, "../entities"),
-    migrationsDir: path.join(__dirname, "../migrations"),
+    entitiesDir: "src/entities",
+    migrationsDir: "src/migrations",
   },
 }
 
