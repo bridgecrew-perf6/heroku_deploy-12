@@ -4,20 +4,29 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const devConfig = {
+const developmentEnv = {
   type: "postgres",
-  host: "localhost",
-  port: 5432,
-  username: process.env.POSTGRES_USER,
-  password: process.env.POSTGRES_PASSWORD,
-  database: process.env.POSTGRES_DB,
+  url: process.env.DATABASE_URL,
+  synchronize: true,
   logging: false,
+  ssl: false,
   entities: [path.join(__dirname, "../entities/**/*.*")],
   migrations: [path.join(__dirname, "../migrations/**/*.*")],
   cli: {
     entitiesDir: path.join(__dirname, "../entities"),
     migrationsDir: path.join(__dirname, "../migrations"),
   },
-} as ConnectionOptions;
+}
 
-export default devConfig;
+const productionEnv = {
+  type: "postgres",
+  url: process.env.DATABASE_URL,
+  entities: ["./build/entities/*.js"],
+  migrations: ["./build/migrations/*.js"],
+  cli: {    
+    migrationsDir: "./build/migrations",
+  },
+  ssl: { rejectUnauthorized: false },
+}
+
+module.exports = process.env.NODE_ENV === "production" ? productionEnv : developmentEnv;
