@@ -11,4 +11,4 @@ createConnection();
 //   })
 //   .catch((err) => console.log(err));
 
-app.listen(3000, () => console.log("3000")) 
+app.listen(process.env.PORT || 3000, () => console.log(`${process.env.PORT}`)); 
